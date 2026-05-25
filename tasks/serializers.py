@@ -31,6 +31,10 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    """
+    Serializer for task entity.
+    """
+
     creator = UserSerializer(read_only=True)
 
     assignee = serializers.PrimaryKeyRelatedField(

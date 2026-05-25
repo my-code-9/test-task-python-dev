@@ -5,6 +5,10 @@ from django.db import models
 
 
 class Task(models.Model):
+    """
+    Represents task entity in the system.
+    """
+
     STATUS_CHOICES = (
         ("todo", "To Do"),
         ("in_progress", "In Progress"),
@@ -52,6 +56,10 @@ class Task(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Represents comments attached to tasks.
+    """
+
     task = models.ForeignKey(
         Task,
         on_delete=models.CASCADE,

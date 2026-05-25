@@ -8,6 +8,10 @@ from .serializers import CommentSerializer, TaskSerializer
 
 
 class TaskViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint for managing tasks.
+    """
+
     serializer_class = TaskSerializer
 
     permission_classes = [permissions.IsAuthenticated]
@@ -26,6 +30,9 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=["post"])
     def complete(self, request, pk=None):
+        """
+        Mark task as completed.
+        """
         task = self.get_object()
 
         task.is_completed = True
@@ -39,6 +46,10 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=["post"])
     def add_comment(self, request, pk=None):
+        """
+        Add comment to task.
+        """
+
         task = self.get_object()
 
         serializer = CommentSerializer(
