@@ -35,6 +35,4 @@ class CommentAdmin(admin.ModelAdmin):
         "created_at",
     )
 
-    search_fields = (
-        "text",
-    )
+    search_fields = ("text",)
